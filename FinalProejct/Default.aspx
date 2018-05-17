@@ -7,6 +7,13 @@
     <title>City of Portland Performance Reviews</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
     <script src="Scripts/bootstrap.js"></script>
+    <script language="javascript">
+        var groupId = "THE_BEST"; //Insert your groupid-MAX 30 CHARS
+        var Url = "http://people.oregonstate.edu/~laty/record.php?username=" + groupId;
+        xmlHttp = new XMLHttpRequest();
+        xmlHttp.open("GET", Url, true);
+        xmlHttp.send(null);
+    </script>
 
 </head>
 <body>
