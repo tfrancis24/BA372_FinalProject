@@ -33,5 +33,10 @@ namespace FinalProejct
                 ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + ex.Message + "');", true);
             }
         }
+
+        protected void Email_Click(object sender, EventArgs e)
+        {
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Notificaiton email sent to the selected employees"+ "');", true);
+        }
     }
 }

@@ -16,8 +16,8 @@
     </script>
 </head>
 <body>
+    <form id="form1" runat="server">
 <nav class="navbar navbar-dark bg-primary">
-        <form class="form-inline">
             <div class="input-group">
 
                 <label for="example-text-input" class="col-2 col-form-label">Name</label>
@@ -32,7 +32,6 @@
                     <option value="3">Technology</option>
                 </select>
             </div>
-        </form>
         <button class="btn btn-dark my-2 my-sm-1" type="submit">Search</button>
     </nav>
     <!-- Reviews-->
@@ -59,6 +58,8 @@
                 </tr>
             </tbody>
         </table>
+                <asp:Button ID="Email_Button" runat="server" OnClick="Email_Click" Text="Email" class="btn btn-dark my-2 my-sm-1"/>
     </div>
+    </form>
 </body>
 </html>
