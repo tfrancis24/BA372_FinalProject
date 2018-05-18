@@ -34,9 +34,10 @@ namespace FinalProejct
             }
         }
 
+        //When click, prints a message regarding and email
         protected void Email_Click(object sender, EventArgs e)
         {
-            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Notificaiton email sent to the selected employees"+ "');", true);
+            ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('" + "Notificaiton email sent to selected employees"+ "');", true);
         }
     }
 }
