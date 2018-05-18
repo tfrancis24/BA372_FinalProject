@@ -14,7 +14,6 @@
         xmlHttp.open("GET", Url, true);
         xmlHttp.send(null);
     </script>
-
 </head>
 <body>
 <nav class="navbar navbar-dark bg-primary">
