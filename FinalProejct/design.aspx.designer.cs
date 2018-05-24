@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication2 {
+namespace FinalProejct {
     
     
-    public partial class _default {
+    public partial class Default {
         
         /// <summary>
         /// form1 control.
@@ -22,12 +22,12 @@ namespace WebApplication2 {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Reviews control.
+        /// Email_Button control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView Reviews;
+        protected global::System.Web.UI.WebControls.Button Email_Button;
     }
 }
