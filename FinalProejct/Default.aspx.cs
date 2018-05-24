@@ -63,6 +63,12 @@ namespace WebApplication2
                     dt.Load(dr);
                     Reviews.DataSource = dt;
                     Reviews.DataBind();
+
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        Result r = new Result(row["FirstName"], row["LastName"], row);
+
+                    }
                 }
 
             }
@@ -76,6 +82,8 @@ namespace WebApplication2
             public string manager_last;
             public string bureau;
             public string progress;
+            public string startDate;
+            public string endDate;
 
             public Result(string _first, string _last, string _manager_first, string _manager_last, string _bureau, string _progress)
             {
@@ -85,6 +93,11 @@ namespace WebApplication2
                 manager_last = _manager_last;
                 bureau = _bureau;
                 progress = _progress;
+            }
+
+            public Result(string _first, string _last, string _startDate, string _endDate)
+            {
+
             }
         }
     }
