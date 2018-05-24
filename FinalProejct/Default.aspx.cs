@@ -14,7 +14,7 @@ namespace FinalProejct
         {
             //Code for connecting to DB
             //Need to modify path for our project
-            string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=c:\\temp\\foo.accdb";
+            string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=database._Complete.accdb";
             OleDbConnection connection = new OleDbConnection(connectString);
             OleDbCommand cmd = new OleDbCommand();
             cmd.Connection = connection;
