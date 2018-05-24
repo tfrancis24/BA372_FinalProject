@@ -11,17 +11,15 @@ namespace WebApplication2
 {
     public partial class _default : System.Web.UI.Page
     {
-        public IList<Results> Results;
+        public IList<Result> Results;
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Results = new List<Results>();
+            Results = new List<Result>();
             string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=C:/database/database._Complete.accdb";
             string query = "SELECT * FROM reviews";
-            using (OleDbConnection con = new OleDbConnection(connectString))
-            {
-                using (OleDbCommand cmd = new OleDbCommand(query, con))
-                {
+            using (OleDbConnection con = new OleDbConnection(connectString)) {
+                using (OleDbCommand cmd = new OleDbCommand(query, con)) {
                     con.Open();
                     OleDbDataReader dr = cmd.ExecuteReader();
                     DataTable dt = new DataTable();
@@ -29,6 +27,17 @@ namespace WebApplication2
                     Reviews.DataSource = dt;
                     Reviews.DataBind();
                 }
+
+                //test result please ignore
+
+                Result result = new Result(
+                     "ben",
+                    "Beals",
+                    "Tim",
+                    "Francis",
+                    "HR",
+                    "2"
+                );
             }
         }
 
@@ -36,25 +45,25 @@ namespace WebApplication2
         {
 
         }
-    }
 
-    public class Results
-    {
-        string first { get; set; }
-        string last { get; set; }
-        string manager_first { get; set; }
-        string manager_last { get; set; }
-        string bureau { get; set; }
-        string progress { get; set; }
-
-        public Results(string frist,string last,string manager_first,string manager_last,string bureau,string progress)
+        public class Result
         {
-            this.first = first;
-            this.last = last;
-            this.manager_first = manager_first;
-            this.manager_last = manager_last;
-            this.bureau = bureau;
-            this.progress = progress;
+            public string Firstname;
+            public string Lastname;
+            public string manager_first;
+            public string manager_last;
+            public string bureau;
+            public string progress;
+
+            public Result(string _first, string _last, string _manager_first, string _manager_last, string _bureau, string _progress)
+            {
+                Firstname = _first;
+                Lastname = _last;
+                manager_first = _manager_first;
+                manager_last = _manager_last;
+                bureau = _bureau;
+                progress = _progress;
+            }
         }
     }
 }
