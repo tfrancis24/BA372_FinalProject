@@ -41,9 +41,10 @@ namespace WebApplication2
             //}
         }
 
+        //When clicked, populates a table
         protected void Button1_Click(object sender, EventArgs e)
         {
-            GetSQL("SELECT * FROM reviews");
+            GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
         }
 
         //Gets SQL query data & stores it in the list
