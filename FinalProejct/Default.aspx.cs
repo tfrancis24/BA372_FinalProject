@@ -16,17 +16,17 @@ namespace WebApplication2
         protected void Page_Load(object sender, EventArgs e)
         {
             Results = new List<Result>();
-            string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=C:/database/database._Complete.accdb";
-            string query = "SELECT * FROM reviews";
-            using (OleDbConnection con = new OleDbConnection(connectString)) {
-                using (OleDbCommand cmd = new OleDbCommand(query, con)) {
-                    con.Open();
-                    OleDbDataReader dr = cmd.ExecuteReader();
-                    DataTable dt = new DataTable();
-                    dt.Load(dr);
-                    Reviews.DataSource = dt;
-                    Reviews.DataBind();
-                }
+            //string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=C:/database/database._Complete.accdb";
+            //string query = "SELECT * FROM reviews";
+            //using (OleDbConnection con = new OleDbConnection(connectString)) {
+            //    using (OleDbCommand cmd = new OleDbCommand(query, con)) {
+            //        con.Open();
+            //        OleDbDataReader dr = cmd.ExecuteReader();
+            //        DataTable dt = new DataTable();
+            //        dt.Load(dr);
+            //        Reviews.DataSource = dt;
+            //        Reviews.DataBind();
+            //    }
 
                 //test result please ignore
 
@@ -38,13 +38,34 @@ namespace WebApplication2
                     "HR",
                     "2"
                 );
-            }
+            //}
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-
+            GetSQL("SELECT * FROM reviews");
         }
+
+        //Gets SQL query data & stores it in the list
+        public void GetSQL(string query)
+        {
+            Results = new List<Result>();
+            //string query = "SELECT * FROM reviews";
+            string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=C:/database/database._Complete.accdb";
+            using (OleDbConnection con = new OleDbConnection(connectString))
+            {
+                using (OleDbCommand cmd = new OleDbCommand(query, con))
+                {
+                    con.Open();
+                    OleDbDataReader dr = cmd.ExecuteReader();
+                    DataTable dt = new DataTable();
+                    dt.Load(dr);
+                    Reviews.DataSource = dt;
+                    Reviews.DataBind();
+                }
+
+            }
+    }
 
         public class Result
         {
