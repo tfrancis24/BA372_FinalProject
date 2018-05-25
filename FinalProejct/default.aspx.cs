@@ -107,14 +107,14 @@ namespace WebApplication2
                 percent = (double.Parse(progress) / 4) * 100;
             }
 
-            public Result(string _ID, string _last, string _manager_last, string _bureau, string _startDate, string _progress)
+            public Result(string _ID, string _last,  string _bureau, string _startDate, string _progress)
             {
                 ID = _ID;
                 startDate = _startDate;
                 Lastname = _last;
-                manager_last = _manager_last;
                 bureau = _bureau;
                 progress = _progress;
+                percent = (double.Parse(progress) / 4) * 100;
             }
 
         }
