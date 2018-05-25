@@ -77,8 +77,8 @@ namespace WebApplication2
                     Reviews.DataBind();
 
                     foreach (DataRow row in dt.Rows)
-                    {                      
-                        //---------------------TOOOOOOOOOO DOOOOOOOOOOO----------------------------//
+                    {
+                        Result r = new Result(dr["FirstName"].ToString(), dr["LastName"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"]);
                     }
                 }
 
@@ -95,6 +95,7 @@ namespace WebApplication2
             public string progress;
             public string startDate;
             public string endDate;
+
 
             public Result(string _first, string _last, string _manager_first, string _manager_last, string _bureau, string _progress)
             {
