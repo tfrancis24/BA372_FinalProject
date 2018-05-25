@@ -25,13 +25,12 @@ namespace WebApplication2
 "Tim",
 "Francis",
 "HR",
-"2",
-"6/12/2017"
+"6/12/2017",
+"2"
 );
 
                 Results.Add(result);
           
-            //}
         }
 
         //When clicked, populates a table
@@ -44,12 +43,12 @@ namespace WebApplication2
 "Tim",
 "Francis",
 "HR",
-"2",
-"9/12/2013"
+"9/12/2013",
+"3"
 );
 
             Results.Add(result);
-            GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
+        //    GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
         }
 
         //Gets SQL query data & stores it in the list
@@ -88,6 +87,7 @@ namespace WebApplication2
             public string bureau;
             public string progress;
             public string startDate;
+            public double percent;
 
             public Result(string _ID,string _first, string _last, string _manager_first, string _manager_last, string _bureau,string _startDate, string _progress)
 
@@ -100,6 +100,7 @@ namespace WebApplication2
                 manager_last = _manager_last;
                 bureau = _bureau;
                 progress = _progress;
+                percent = (double.Parse(progress) / 4) * 100;
             }
 
         }

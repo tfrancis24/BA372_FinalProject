@@ -29,23 +29,24 @@
             </thead>
             <tbody>
                 <%
-                foreach(Result result in Results) {
-                    Response.Write(
-                     "<tr>" +
-                    $"<td>{result.ID}</td>" +
-                    $"<td>{result.Firstname} {result.Lastname}</td>" +
-                    $"<td>{result.manager_first} {result.manager_last}</td>" +
-                    $"<td>{result.bureau}</td>" +
-                    $"<td>{result.startDate}</td>" +
-                    "<td>" +
-                        "<div class=\"progress\">" +
-                            "<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"75\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width: 75%;\">"+
-                                $"{result.progress}%" +
+                    foreach(Result result in Results) {
+
+                        Response.Write(
+                         "<tr>" +
+                        $"<td>{result.ID}</td>" +
+                        $"<td>{result.Firstname} {result.Lastname}</td>" +
+                        $"<td>{result.manager_first} {result.manager_last}</td>" +
+                        $"<td>{result.bureau}</td>" +
+                        $"<td>{result.startDate}</td>" +
+                        "<td>" +
+                            "<div class=\"progress\">" +
+                                $"<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"50\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{Math.Round(result.percent)}%;\">"+
+                                    $"{result.progress}/4" +
+                                "</div>" +
                             "</div>" +
-                        "</div>" +
-                    "</td>" +
-                "</tr>");
-                }
+                        "</td>" +
+                    "</tr>");
+                    }
             %>
             </tbody>
         </table>
