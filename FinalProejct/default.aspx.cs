@@ -73,7 +73,7 @@ namespace WebApplication2
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        Result r = new Result(dr["ID"].ToString(), dr["FirstName"].ToString(), dr["LastName"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"].ToString());
+                        Result r = new Result(dr["ID"].ToString(), dr["Employee_Name"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"].ToString());
                         Results.Add(r);
                     }
                 }
@@ -107,7 +107,7 @@ namespace WebApplication2
                 percent = (double.Parse(progress) / 4) * 100;
             }
 
-            public Result(string _ID, string _last,  string _bureau, string _startDate, string _progress)
+            public Result(string _ID, string _last, string _bureau, string _startDate, string _progress)
             {
                 ID = _ID;
                 startDate = _startDate;
