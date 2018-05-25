@@ -71,7 +71,7 @@ namespace WebApplication2
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        Result r = new Result(dr["FirstName"].ToString(), dr["LastName"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"].ToString());
+                        Result r = new Result(dr["ID"].ToString(), dr["FirstName"].ToString(), dr["LastName"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"].ToString());
                     }
                 }
 
