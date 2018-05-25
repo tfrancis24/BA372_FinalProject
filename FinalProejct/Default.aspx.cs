@@ -71,7 +71,7 @@ namespace WebApplication2
 
                     foreach (DataRow row in dt.Rows)
                     {
-                       // Result r = new Result(dr["FirstName"].ToString(), dr["LastName"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"]);
+                        Result r = new Result(dr["FirstName"].ToString(), dr["LastName"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"].ToString());
                     }
                 }
 
@@ -97,6 +97,16 @@ namespace WebApplication2
                 Firstname = _first;
                 Lastname = _last;
                 manager_first = _manager_first;
+                manager_last = _manager_last;
+                bureau = _bureau;
+                progress = _progress;
+            }
+
+            public Result(string _ID, string _last, string _manager_last, string _bureau, string _startDate, string _progress)
+            {
+                ID = _ID;
+                startDate = _startDate;
+                Lastname = _last;
                 manager_last = _manager_last;
                 bureau = _bureau;
                 progress = _progress;
