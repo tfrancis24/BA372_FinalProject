@@ -65,9 +65,8 @@ namespace WebApplication2
                     Reviews.DataBind();
 
                     foreach (DataRow row in dt.Rows)
-                    {
-                        Result r = new Result(row["FirstName"], row["LastName"], row);
-
+                    {                      
+                        //---------------------TOOOOOOOOOO DOOOOOOOOOOO----------------------------//
                     }
                 }
 
@@ -97,7 +96,10 @@ namespace WebApplication2
 
             public Result(string _first, string _last, string _startDate, string _endDate)
             {
-
+                Firstname = _first;
+                Lastname = _last;
+                startDate = _startDate;
+                endDate = _endDate;
             }
         }
     }
