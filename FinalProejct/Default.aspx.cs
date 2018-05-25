@@ -107,7 +107,7 @@ namespace WebApplication2
                 percent = (double.Parse(progress) / 4) * 100;
             }
 
-            public Result(string _ID, string _last,  string _bureau, string _startDate, string _progress)
+            public Result(string _ID, string _last, string _bureau, string _startDate, string _progress)
             {
                 ID = _ID;
                 startDate = _startDate;
