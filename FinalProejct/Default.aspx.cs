@@ -17,8 +17,8 @@ namespace WebApplication2
         {
             Results = new List<Result>();
 
-                //test result please ignore
-                Result result = new Result(
+            //test result please ignore
+            Result result = new Result(
 "102569",
 "ben",
 "Beals",
@@ -26,11 +26,14 @@ namespace WebApplication2
 "Francis",
 "HR",
 "6/12/2017",
-"2"
-);
+"3");
+
+
+
 
                 Results.Add(result);
           
+            //}
         }
 
         //When clicked, populates a table
@@ -44,11 +47,11 @@ namespace WebApplication2
 "Francis",
 "HR",
 "9/12/2013",
-"3"
+"2"
 );
 
             Results.Add(result);
-        //    GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
+           // GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
         }
 
         //Gets SQL query data & stores it in the list
@@ -70,7 +73,7 @@ namespace WebApplication2
 
                     foreach (DataRow row in dt.Rows)
                     {
-                        Result r = new Result(dr["ID"].ToString(), dr["FirstName"].ToString(), dr["LastName"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"].ToString());
+                        Result r = new Result(dr["ID"].ToString(), dr["Employee_Name"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"].ToString());
                         Results.Add(r);
                     }
                 }
@@ -104,14 +107,14 @@ namespace WebApplication2
                 percent = (double.Parse(progress) / 4) * 100;
             }
 
-            public Result(string _ID, string _last, string _manager_last, string _bureau, string _startDate, string _progress)
+            public Result(string _ID, string _last,  string _bureau, string _startDate, string _progress)
             {
                 ID = _ID;
                 startDate = _startDate;
                 Lastname = _last;
-                manager_last = _manager_last;
                 bureau = _bureau;
                 progress = _progress;
+                percent = (double.Parse(progress) / 4) * 100;
             }
 
         }
