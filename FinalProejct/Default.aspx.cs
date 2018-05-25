@@ -19,12 +19,14 @@ namespace WebApplication2
 
                 //test result please ignore
                 Result result = new Result(
+"102569",
 "ben",
 "Beals",
 "Tim",
 "Francis",
 "HR",
-"2"
+"2",
+"6/12/2017"
 );
 
                 Results.Add(result);
@@ -36,13 +38,16 @@ namespace WebApplication2
         protected void Button1_Click(object sender, EventArgs e)
         {
             Result result = new Result(
-"Not Ben",
-"Beals",
-"Someone else",
+"123456",
+"Jim",
+"Smith",
+"Tim",
 "Francis",
 "HR",
-"2"
+"2",
+"9/12/2013"
 );
+
             Results.Add(result);
             GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
         }
@@ -75,6 +80,7 @@ namespace WebApplication2
 
         public class Result
         {
+            public string ID;
             public string Firstname;
             public string Lastname;
             public string manager_first;
@@ -82,10 +88,11 @@ namespace WebApplication2
             public string bureau;
             public string progress;
             public string startDate;
-            public string endDate;
 
-            public Result(string _first, string _last, string _manager_first, string _manager_last, string _bureau, string _progress)
+            public Result(string _ID,string _first, string _last, string _manager_first, string _manager_last, string _bureau, string _progress,string _startDate)
             {
+                ID = _ID;
+                startDate = _startDate;
                 Firstname = _first;
                 Lastname = _last;
                 manager_first = _manager_first;
@@ -99,7 +106,6 @@ namespace WebApplication2
                 Firstname = _first;
                 Lastname = _last;
                 startDate = _startDate;
-                endDate = _endDate;
             }
         }
     }
