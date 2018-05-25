@@ -11,7 +11,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Name" />
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             <asp:GridView ID="Reviews" runat="server"></asp:GridView>
             <div class="container" style="margin-top: 20px">
         <table class="table table-hover">
