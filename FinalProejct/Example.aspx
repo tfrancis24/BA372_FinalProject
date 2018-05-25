@@ -35,31 +35,6 @@
         <button class="btn btn-dark my-2 my-sm-1" type="submit">Search</button>
     </nav>
     <!-- Reviews-->
-    <div class="container" style="margin-top: 20px">
-        <table class="table table-hover">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Bureau</th>
-                    <th>Progress</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Budgeting</td>
-                    <td>
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;">
-                                75%
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <asp:Button ID="Email_Button" runat="server" OnClick="Email_Click" Text="Email" class="btn btn-dark my-2 my-sm-1"/>
-    </div>
-    </form>
+    
 </body>
 </html>

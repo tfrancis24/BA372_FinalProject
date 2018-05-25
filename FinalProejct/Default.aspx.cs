@@ -29,21 +29,31 @@ namespace WebApplication2
                 }
 
                 //test result please ignore
-
                 Result result = new Result(
-                     "ben",
-                    "Beals",
-                    "Tim",
-                    "Francis",
-                    "HR",
-                    "2"
-                );
+"ben",
+"Beals",
+"Tim",
+"Francis",
+"HR",
+"2"
+);
+
+                Results.Add(result);
             }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Result result = new Result(
+"Not Ben",
+"Beals",
+"Someone else",
+"Francis",
+"HR",
+"2"
+);
 
+            Results.Add(result);
         }
 
         public class Result
