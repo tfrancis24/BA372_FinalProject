@@ -16,17 +16,6 @@ namespace WebApplication2
         protected void Page_Load(object sender, EventArgs e)
         {
             Results = new List<Result>();
-            //string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=C:/database/database._Complete.accdb";
-            //string query = "SELECT * FROM reviews";
-            //using (OleDbConnection con = new OleDbConnection(connectString)) {
-            //    using (OleDbCommand cmd = new OleDbCommand(query, con)) {
-            //        con.Open();
-            //        OleDbDataReader dr = cmd.ExecuteReader();
-            //        DataTable dt = new DataTable();
-            //        dt.Load(dr);
-            //        Reviews.DataSource = dt;
-            //        Reviews.DataBind();
-            //    }
 
                 //test result please ignore
                 Result result = new Result(
@@ -54,9 +43,8 @@ namespace WebApplication2
 "HR",
 "2"
 );
-
             Results.Add(result);
-            //GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
+            GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
         }
 
         //Gets SQL query data & stores it in the list
