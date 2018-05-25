@@ -115,6 +115,7 @@ namespace WebApplication2
                 manager_last = _manager_last;
                 bureau = _bureau;
                 progress = _progress;
+                percent = (double.Parse(progress) / 4) * 100;
             }
 
         }
