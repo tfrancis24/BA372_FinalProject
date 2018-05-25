@@ -17,8 +17,6 @@
             <asp:GridView ID="Reviews" runat="server"></asp:GridView>
             <asp:Calendar ID="StartDateCalendar" runat="server"></asp:Calendar>
             <asp:Calendar ID="EndDateCalendar" runat="server"></asp:Calendar>
-            <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-            </asp:UpdatePanel>
             <div class="container" style="margin-top: 20px">
         <table class="table table-hover">
             <thead>
