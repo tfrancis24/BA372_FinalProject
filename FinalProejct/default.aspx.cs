@@ -17,23 +17,6 @@ namespace WebApplication2
         {
             Results = new List<Result>();
 
-            //test result please ignore
-            Result result = new Result(
-"102569",
-"ben",
-"Beals",
-"Tim",
-"Francis",
-"HR",
-"6/12/2017",
-"3");
-
-
-
-
-                Results.Add(result);
-          
-            //}
         }
 
         //When clicked, populates a table
@@ -49,7 +32,6 @@ namespace WebApplication2
 "9/12/2013",
 "2"
 );
-
             Results.Add(result);
            // GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
         }
@@ -86,8 +68,8 @@ namespace WebApplication2
             public string ID;
             public string Firstname;
             public string Lastname;
-            public string manager_first;
-            public string manager_last;
+            public string manager_first="N/A";
+            public string manager_last ="N/A";
             public string bureau;
             public string progress;
             public string startDate;
