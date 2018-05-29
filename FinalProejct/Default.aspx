@@ -101,7 +101,7 @@
                 <thead>
                     <tr>
                         <th>Employee ID</th>
-                        <th>Employee_Name</th>
+                        <th>Employee Name</th>
                         <th>Manager ID</th>
                         <th>Bureau</th>
                         <th>Start Date</th>
