@@ -90,13 +90,12 @@
    
                 </div>
             </div>
-            <asp:GridView ID="Reviews" runat="server"></asp:GridView>
             <table class="table table-hover" style="margin-top: 20px;">
                 <thead>
                     <tr>
                         <th>Employee ID</th>
                         <th>Employee_Name</th>
-                        <th>Manager_Name</th>
+                        <th>Manager ID</th>
                         <th>Bureau</th>
                         <th>Start Date</th>
                         <th>Progress</th>
@@ -110,7 +109,7 @@
                              "<tr>" +
                             $"<td>{result.ID}</td>" +
                             $"<td>{result.Firstname} {result.Lastname}</td>" +
-                            $"<td>{result.manager_first} {result.manager_last}</td>" +
+                            $"<td>{result.ManagerID}</td>" +
                             $"<td>{result.bureau}</td>" +
                             $"<td>{result.startDate}</td>" +
                             "<td>" +

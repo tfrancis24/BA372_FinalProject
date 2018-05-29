@@ -16,24 +16,27 @@ namespace WebApplication2
         protected void Page_Load(object sender, EventArgs e)
         {
             Results = new List<Result>();
-
+            GetSQL(@"
+            SELECT Employee.EmployeeID,
+                FirstName, 
+                LastName, 
+                Employee_Bureau.StartDate,
+                Manager_Employee.ManagerID,
+                Bureaus.BureauName,
+                ReviewStatus.ReviewStatusID
+            FROM Employee, Employee_Bureau, ReviewStatus, Reviews, Bureaus, Manager_Employee
+            WHERE Employee.EmployeeID = Employee_Bureau.EmployeeID 
+            AND Employee_Bureau.Employee_BureauID = Reviews.Employee_BureauID
+            AND Reviews.ReviewStatusID = ReviewStatus.ReviewStatusID
+            AND Bureaus.BureauID = Employee_Bureau.BureauID
+            AND Manager_Employee.Manager_EmployeeID = Reviews.Manager_EmployeeID;
+");
         }
 
         //When clicked, populates a table
         protected void Button1_Click(object sender, EventArgs e)
         {
-            Result result = new Result(
-"123456",
-"Jim",
-"Smith",
-"Tim",
-"Francis",
-"HR",
-"9/12/2013",
-"2"
-);
-            Results.Add(result);
-           // GetSQL("SELECT FirstName, LastName, StartDate, EndDate FROM Employee INNER JOIN Manager_Employee ON Employee.EmployeeID = Manager_Employee.ManagerID;");
+            //search stuff here
         }
 
         //Gets SQL query data & stores it in the list
@@ -42,60 +45,43 @@ namespace WebApplication2
             Results = new List<Result>();
             //string query = "SELECT * FROM reviews";
             string connectString = "Provider=Microsoft.ACE.OLEDB.12.0;" + @"Data Source=C:/database/database._Complete.accdb";
-            using (OleDbConnection con = new OleDbConnection(connectString))
-            {
-                using (OleDbCommand cmd = new OleDbCommand(query, con))
-                {
+            using (OleDbConnection con = new OleDbConnection(connectString)) {
+                using (OleDbCommand cmd = new OleDbCommand(query, con)) {
                     con.Open();
                     OleDbDataReader dr = cmd.ExecuteReader();
                     DataTable dt = new DataTable();
                     dt.Load(dr);
-                    Reviews.DataSource = dt;
-                    Reviews.DataBind();
 
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        Result r = new Result(dr["ID"].ToString(), dr["Employee_Name"].ToString(), dr["Bureau"].ToString(), dr["StartDate"].ToString(), dr["Progress"].ToString());
+                    foreach (DataRow row in dt.Rows) {
+                        Result r = new Result(row["EmployeeID"].ToString(), row["FirstName"].ToString(), row["LastName"].ToString(), row["StartDate"].ToString(), row["ManagerID"].ToString(), row["BureauName"].ToString(), row["ReviewStatusID"].ToString());
                         Results.Add(r);
                     }
                 }
 
             }
-    }
+        }
 
         public class Result
         {
             public string ID;
             public string Firstname;
             public string Lastname;
-            public string manager_first="N/A";
-            public string manager_last ="N/A";
+            public string ManagerID;
             public string bureau;
             public string progress;
             public string startDate;
             public double percent;
 
-            public Result(string _ID,string _first, string _last, string _manager_first, string _manager_last, string _bureau,string _startDate, string _progress)
+            public Result(string _ID, string _first, string _last, string _startDate, string _managerID, string _bureau, string _progress)
 
             {
                 ID = _ID;
                 startDate = _startDate;
                 Firstname = _first;
                 Lastname = _last;
-                manager_first = _manager_first;
-                manager_last = _manager_last;
+                ManagerID = _managerID;
                 bureau = _bureau;
-                progress = _progress;
-                percent = (double.Parse(progress) / 4) * 100;
-            }
-
-            public Result(string _ID, string _last, string _bureau, string _startDate, string _progress)
-            {
-                ID = _ID;
-                startDate = _startDate;
-                Lastname = _last;
-                bureau = _bureau;
-                progress = _progress;
+                progress =(Int32.Parse( _progress)+1).ToString();
                 percent = (double.Parse(progress) / 4) * 100;
             }
 
