@@ -36,7 +36,27 @@ namespace WebApplication2
         //When clicked, populates a table
         protected void Button1_Click(object sender, EventArgs e)
         {
-            //search stuff here
+            Results = new List<Result>();
+            GetSQL(@"SELECT Employee.EmployeeID,
+FirstName,
+LastName,
+Employee_Bureau.StartDate,
+Manager_Employee.ManagerID,
+Bureaus.BureauName,
+Reviews.ReviewStatusID,
+ReviewStatus.ReviewStatus
+
+
+FROM Employee, Employee_Bureau, ReviewStatus, Reviews, Bureaus, Manager_Employee
+
+WHERE(Employee.FirstName = '"+ TextBox1.Text + @"')
+AND Employee.EmployeeID = Employee_Bureau.EmployeeID
+AND Employee_Bureau.Employee_BureauID = Reviews.Employee_BureauID
+AND Reviews.ReviewStatusID = ReviewStatus.ReviewStatusID
+AND Bureaus.BureauID = Employee_Bureau.BureauID
+AND Manager_Employee.Manager_EmployeeID = Reviews.Manager_EmployeeID;
+            ");
+
         }
 
         //Gets SQL query data & stores it in the list
