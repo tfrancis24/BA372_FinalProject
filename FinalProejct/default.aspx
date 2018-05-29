@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-md-auto">
                                 <br />
-                                <h4>City of Portland Oregon</h4>
+                                <h4>City of Portland, Oregon</h4>
                                 <p>Bureau of Human Resources</p>
                             </div>
                         </div>
@@ -117,7 +117,7 @@
             <div class="row">
                 <div class="col-sm">
 
-                    <h4>In progress reviews</h4>
+                    <h4>In Progress Performance Reviews</h4>
 
                 </div>
                 <div class="col-sm">
