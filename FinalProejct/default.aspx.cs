@@ -33,31 +33,58 @@ namespace WebApplication2
 ");
         }
 
-        //When clicked, populates a table
+        //When clicked, returns results from query based by the first name
         protected void Button1_Click(object sender, EventArgs e)
         {
             Results = new List<Result>();
             GetSQL(@"SELECT Employee.EmployeeID,
-FirstName,
-LastName,
-Employee_Bureau.StartDate,
-Manager_Employee.ManagerID,
-Bureaus.BureauName,
-Reviews.ReviewStatusID,
-ReviewStatus.ReviewStatus
+                FirstName,
+                LastName,
+                Employee_Bureau.StartDate,
+                Manager_Employee.ManagerID,
+                Bureaus.BureauName,
+                Reviews.ReviewStatusID,
+                ReviewStatus.ReviewStatus
 
 
-FROM Employee, Employee_Bureau, ReviewStatus, Reviews, Bureaus, Manager_Employee
+                FROM Employee, Employee_Bureau, ReviewStatus, Reviews, Bureaus, Manager_Employee
 
-WHERE(Employee.FirstName = '"+ TextBox1.Text + @"')
-AND Employee.EmployeeID = Employee_Bureau.EmployeeID
-AND Employee_Bureau.Employee_BureauID = Reviews.Employee_BureauID
-AND Reviews.ReviewStatusID = ReviewStatus.ReviewStatusID
-AND Bureaus.BureauID = Employee_Bureau.BureauID
-AND Manager_Employee.Manager_EmployeeID = Reviews.Manager_EmployeeID;
+                WHERE(Employee.FirstName = '"+ TextBox1.Text + @"')
+                AND Employee.EmployeeID = Employee_Bureau.EmployeeID
+                AND Employee_Bureau.Employee_BureauID = Reviews.Employee_BureauID
+                AND Reviews.ReviewStatusID = ReviewStatus.ReviewStatusID
+                AND Bureaus.BureauID = Employee_Bureau.BureauID
+                AND Manager_Employee.Manager_EmployeeID = Reviews.Manager_EmployeeID;
             ");
 
         }
+
+        //When clicked, runs a query that returns results w/ the last name
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            GetSQL(@"
+                SELECT Employee.EmployeeID,
+                Firstname, 
+                Lastname, 
+                Employee_Bureau.StartDate,
+                Manager_Employee.ManagerID,
+                Bureaus.BureauName,
+                Reviews.ReviewStatusID,
+                ReviewStatus.ReviewStatus
+
+
+                FROM Employee, Employee_Bureau, ReviewStatus, Reviews, Bureaus, Manager_Employee
+
+                WHERE (Employee.LastName = '" + TextBox2.Text + @"')
+                AND Employee.EmployeeID = Employee_Bureau.EmployeeID 
+                AND Employee_Bureau.Employee_BureauID = Reviews.Employee_BureauID
+                AND Reviews.ReviewStatusID = ReviewStatus.ReviewStatusID
+                AND Bureaus.BureauID = Employee_Bureau.BureauID
+                AND Manager_Employee.Manager_EmployeeID = Reviews.Manager_EmployeeID;
+                ");
+        }
+
+
 
         //Gets SQL query data & stores it in the list
         public void GetSQL(string query)
@@ -106,5 +133,7 @@ AND Manager_Employee.Manager_EmployeeID = Reviews.Manager_EmployeeID;
             }
 
         }
+
+
     }
 }
