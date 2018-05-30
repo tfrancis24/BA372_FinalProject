@@ -108,6 +108,18 @@ namespace WebApplication2
             }
         }
 
+        //Code from https://www.dotnetperls.com/uppercase-first-letter
+        //Converts first letter in string to upper case. Fixes issue with lower case names in db
+        public string CapitalizeFirst(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+            {
+                return string.Empty;
+            }
+            // Return char and concat substring.
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
         public class Result
         {
             public string ID;
