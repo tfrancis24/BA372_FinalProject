@@ -30,7 +30,7 @@ namespace WebApplication2
             AND Reviews.ReviewStatusID = ReviewStatus.ReviewStatusID
             AND Bureaus.BureauID = Employee_Bureau.BureauID
             AND Manager_Employee.Manager_EmployeeID = Reviews.Manager_EmployeeID;
-");
+                ");
         }
 
         //When clicked, returns results from query based by the first name

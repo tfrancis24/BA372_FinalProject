@@ -6,6 +6,7 @@
 <head runat="server">
     <title>City of Portland Performance Reviews</title>
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <script src="Scripts/bootstrap.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -83,11 +84,11 @@
                         <div class="row">
                             <div class="col-sm">
                                 <h4>First Name</h4>
-                                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox1" runat="server" placeholder="Search..."></asp:TextBox>
                             </div>
                             <div class="col-sm">
                                 <h4>Last Name</h4>
-                                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="TextBox2" runat="server" placeholder="Search..."></asp:TextBox>
                             </div>
                         </div>
                         <div class="row">
@@ -123,9 +124,8 @@
                 <div class="col-sm">
                     <!-- Button to Open the Modal -->
                     <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
-                        Filters
+                        Filters 
                     </button>
-
                 </div>
             </div>
             <table class="table table-hover" style="margin-top: 20px;">
@@ -158,7 +158,7 @@
                                     "</div>" +
                                 "</div>" +
                             "</td>" +
-                           "<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#exampleModalLong\"> Email</button> </td>"
+                           "<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#exampleModalLong\"><i class=\"material-icons\">&#xe0be;</i></button> </td>"
                         +"</tr>");
                         }
                     %>
