@@ -148,7 +148,6 @@
                         <th>Employee Name</th>
                         <th>Manager ID</th>
                         <th>Bureau</th>
-                        <th>Start Date</th>
                         <th>Progress</th>
                         <th>Message</th>
                     </tr>
@@ -181,7 +180,6 @@
                             $"<td>{CapitalizeFirst(result.Firstname)} {CapitalizeFirst(result.Lastname)}</td>" +
                             $"<td>{result.ManagerID}</td>" +
                             $"<td>{result.bureau}</td>" +
-                            $"<td>{result.startDate}</td>" +
                             progress +
                            "<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" style=\"text-align:center;\" data-target=\"#exampleModalLong\"><i class=\"material-icons\">&#xe0be;</i></button> </td>"
                         +"</tr>");
