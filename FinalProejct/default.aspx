@@ -51,7 +51,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                          <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <textarea class="form-control" rows="5" id="comment"></textarea>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -61,7 +61,7 @@
             </div>
         </div>
 
-       <!-- Search Box -->
+        <!-- Search Box -->
         <div class="modal fade" id="myModal">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -119,7 +119,7 @@
                         </table>
                         <div class="modal-footer">
                             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Search" class="btn btn-dark" />
-                           <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search (Lastname)" class="btn btn-dark" />
+                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search (Lastname)" class="btn btn-dark" />
                         </div>
                     </div>
                 </div>
@@ -135,59 +135,59 @@
                 </div>
                 <div class="col-sm">
                     <!-- Button to Open the Modal -->
-                   <div class="float-right">
+                    <div class="float-right">
                         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
                             Search Reviews
                         </button>
+                    </div>
                 </div>
-            </div>
-            <table class="table table-hover" style="margin-top: 20px;">
-                <thead>
-                    <tr>
-                        <th>Employee ID</th>
-                        <th>Employee Name</th>
-                        <th>Manager ID</th>
-                        <th>Bureau</th>
-                        <th>Progress</th>
-                        <th>Message</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <%
-                        foreach (Result result in Results) {
+                <table class="table table-hover" style="margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th>Employee ID</th>
+                            <th>Employee Name</th>
+                            <th>Manager ID</th>
+                            <th>Bureau</th>
+                            <th>Progress</th>
+                            <th>Message</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            foreach (Result result in Results) {
 
-                            string progress = "<td>" +
-                                "<div class=\"progress\">" +
-                                    $"<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"50\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{Math.Round(result.percent)}%;\">" +
-                                        $"{result.progress}/3" +
+                                string progress = "<td>" +
+                                    "<div class=\"progress\">" +
+                                        $"<div class=\"progress-bar\" role=\"progressbar\" aria-valuenow=\"50\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:{Math.Round(result.percent)}%;\">" +
+                                            $"{result.progress}/3" +
+                                        "</div>" +
                                     "</div>" +
-                                "</div>" +
-                            "</td>";
+                                "</td>";
 
-                            if (result.late) {
-                                       progress = "<td>" +
-                                "<div class=\"progress\">" +
-                                    $"<div class=\"progress-bar bg-danger\" role=\"progressbar\" aria-valuenow=\"50\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%;\">" +
-                                        $"Late" +
-                                    "</div>" +
-                                "</div>" +
-                            "</td>";
+                                if (result.late) {
+                                    progress = "<td>" +
+                             "<div class=\"progress\">" +
+                                 $"<div class=\"progress-bar bg-danger\" role=\"progressbar\" aria-valuenow=\"50\" aria-valuemin=\"0\" aria-valuemax=\"100\" style=\"width:100%;\">" +
+                                     $"Late" +
+                                 "</div>" +
+                             "</div>" +
+                         "</td>";
+                                }
+
+                                Response.Write(
+                                 "<tr>" +
+                                $"<td>{result.ID}</td>" +
+                                $"<td>{CapitalizeFirst(result.Firstname)} {CapitalizeFirst(result.Lastname)}</td>" +
+                                $"<td>{result.ManagerID}</td>" +
+                                $"<td>{result.bureau}</td>" +
+                                progress +
+                               "<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" style=\"text-align:center;\" data-target=\"#exampleModalLong\"><i class=\"material-icons\">&#xe0be;</i></button> </td>"
+                            + "</tr>");
                             }
-
-                            Response.Write(
-                             "<tr>" +
-                            $"<td>{result.ID}</td>" +
-                            $"<td>{CapitalizeFirst(result.Firstname)} {CapitalizeFirst(result.Lastname)}</td>" +
-                            $"<td>{result.ManagerID}</td>" +
-                            $"<td>{result.bureau}</td>" +
-                            progress +
-                           "<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" style=\"text-align:center;\" data-target=\"#exampleModalLong\"><i class=\"material-icons\">&#xe0be;</i></button> </td>"
-                        +"</tr>");
-                        }
-                    %>
-            
-                </tbody>
-            </table>
+                        %>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </form>
 </body>
