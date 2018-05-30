@@ -147,7 +147,7 @@
                             Response.Write(
                              "<tr>" +
                             $"<td>{result.ID}</td>" +
-                            $"<td>{result.Firstname} {result.Lastname}</td>" +
+                            $"<td>{CapitalizeFirst(result.Firstname)} {CapitalizeFirst(result.Lastname)}</td>" +
                             $"<td>{result.ManagerID}</td>" +
                             $"<td>{result.bureau}</td>" +
                             $"<td>{result.startDate}</td>" +
@@ -158,7 +158,7 @@
                                     "</div>" +
                                 "</div>" +
                             "</td>" +
-                           "<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" data-target=\"#exampleModalLong\"><i class=\"material-icons\">&#xe0be;</i></button> </td>"
+                           "<td><button type=\"button\" class=\"btn btn-primary btn-sm\" data-toggle=\"modal\" style=\"text-align:center;\" data-target=\"#exampleModalLong\"><i class=\"material-icons\">&#xe0be;</i></button> </td>"
                         +"</tr>");
                         }
                     %>
