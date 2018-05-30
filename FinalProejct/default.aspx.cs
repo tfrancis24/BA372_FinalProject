@@ -104,7 +104,7 @@ namespace WebApplication2
                         Results.Add(r);
                     }
                 }
-
+                Results = Results.OrderBy(e => e.ID).ToList();
             }
         }
 

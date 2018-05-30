@@ -5,14 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>City of Portland Performance Reviews</title>
-    <link href="Content/bootstrap.css" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <script src="Scripts/bootstrap.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
-    <script language="javascript">
+    <script>
         var groupId = "THE_BEST"; //Insert your groupid-MAX 30 CHARS
         var Url = "http://people.oregonstate.edu/~laty/record.php?username=" + groupId;
         xmlHttp = new XMLHttpRequest();
@@ -23,7 +21,6 @@
 <body>
 
     <form id="form1" runat="server">
-
         <div class="jumbotron jumbotron-fluid" style="padding: 20px;">
             <div class="container">
                 <div class="row">
@@ -41,10 +38,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
-        <!-- Button trigger modal -->
 
         <!-- Email Box -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -67,49 +61,67 @@
             </div>
         </div>
 
-        <!-- Search Box -->
+       <!-- Search Box -->
         <div class="modal fade" id="myModal">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
                 <div class="modal-content">
-
-                    <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Search</h4>
+                        <h5 class="modal-title">Filter Reviews</h5>
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-
-                    <!-- Modal body -->
                     <div class="modal-body">
-
-                        <div class="row">
-                            <div class="col-sm">
-                                <h4>First Name</h4>
-                                <asp:TextBox ID="TextBox1" runat="server" placeholder="Search..."></asp:TextBox>
-                            </div>
-                            <div class="col-sm">
-                                <h4>Last Name</h4>
-                                <asp:TextBox ID="TextBox2" runat="server" placeholder="Search..."></asp:TextBox>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm">
-                               <!-- <h4>Start Date</h4>
-                                <!-- <asp:Calendar ID="StartDateCalendar" runat="server"></asp:Calendar> -->
-                            </div>
-                            <div class="col-sm">
-                               <!-- <h4>End Date</h4>
-                                <!--  <asp:Calendar ID="EndDateCalendar" runat="server"></asp:Calendar> -->
-                            </div>
+                        <table class="table">
+                            <tr>
+                                <td>
+                                    <label for="TextBox1">First Name</label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="TextBox2">Last Name</label>
+                                </td>
+                                <td>
+                                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><br />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="DropDownList1">Bureau</label>
+                                </td>
+                                <td>
+                                    <asp:DropDownList ID="DropDownList1" runat="server">
+                                        <asp:ListItem Text="Any" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="HR" Value="2"></asp:ListItem>
+                                        <asp:ListItem Text="Transportation" Value="3"></asp:ListItem>
+                                        <asp:ListItem Text="Housing" Value="4"></asp:ListItem>
+                                        <asp:ListItem Text="Budget" Value="5"></asp:ListItem>
+                                        <asp:ListItem Text="Technology" Value="6"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label for="DropDownList2">Review Status</label>
+                                </td>
+                                <td>
+                                    <asp:DropDownList ID="DropDownList2" runat="server">
+                                        <asp:ListItem Text="Any" Value="1"></asp:ListItem>
+                                        <asp:ListItem Text="Started" Value="2"></asp:ListItem>
+                                        <asp:ListItem Text="In Progress" Value="3"></asp:ListItem>
+                                        <asp:ListItem Text="Completed" Value="4"></asp:ListItem>
+                                        <asp:ListItem Text="Late" Value="5"></asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                        </table>
+                        <div class="modal-footer">
+                            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Search" class="btn btn-dark" />
+                           <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search (Lastname)" class="btn btn-dark" />
                         </div>
                     </div>
-
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Search by First Name" class="btn btn-dark" />
-                        <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search by Last Name" class="btn btn-dark" />
-                       
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -123,9 +135,10 @@
                 </div>
                 <div class="col-sm">
                     <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
-                        Filters 
-                    </button>
+                   <div class="float-right">
+                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
+                            Search Reviews
+                        </button>
                 </div>
             </div>
             <table class="table table-hover" style="margin-top: 20px;">
