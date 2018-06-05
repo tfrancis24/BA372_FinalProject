@@ -62,10 +62,10 @@ namespace WebApplication2
             //post presentation, taking a shortcut to get the rest of the search working
 
             if (firstname != "")
-                Results = Results.Where(review => review.Firstname == firstname).ToList();
+                Results = Results.Where(review => review.Firstname.ToLower() == firstname.ToLower()).ToList();
 
             if (lastname != "")
-                Results = Results.Where(review => review.Lastname == lastname).ToList();
+                Results = Results.Where(review => review.Lastname.ToLower() == lastname.ToLower()).ToList();
 
             if (status != "0") 
                 Results = Results.Where(review => review.progress == status).ToList();
