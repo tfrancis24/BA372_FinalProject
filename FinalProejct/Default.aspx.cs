@@ -104,7 +104,7 @@ namespace WebApplication2
                         Results.Add(r);
                     }
                 }
-
+                Results = Results.OrderBy(e => e.ID).ToList();
             }
         }
 
@@ -130,6 +130,7 @@ namespace WebApplication2
             public string progress;
             public string startDate;
             public double percent;
+            public bool late;
 
             public Result(string _ID, string _first, string _last, string _startDate, string _managerID, string _bureau, string _progress)
 
@@ -141,7 +142,8 @@ namespace WebApplication2
                 ManagerID = _managerID;
                 bureau = _bureau;
                 progress =(Int32.Parse( _progress)+1).ToString();
-                percent = (double.Parse(progress) / 4) * 100;
+                percent = (double.Parse(progress) / 3) * 100;
+                late = (progress == "4");
             }
 
         }
