@@ -119,7 +119,7 @@
                         </table>
                         <div class="modal-footer">
                             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Search" class="btn btn-dark" />
-                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search (Last Name)" class="btn btn-dark" />
+                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search (Lastname)" class="btn btn-dark" />
                         </div>
                     </div>
                 </div>
