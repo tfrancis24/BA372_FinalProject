@@ -100,6 +100,27 @@ namespace WebApplication2
                 ");
         }
 
+        protected void ResetClick(object sender, EventArgs e)
+        {
+            Results = new List<Result>();
+            GetSQL(@"
+            SELECT Employee.EmployeeID,
+                FirstName, 
+                LastName, 
+                Employee_Bureau.StartDate,
+                Manager_Employee.ManagerID,
+                Bureaus.BureauName,
+                ReviewStatus.ReviewStatusID,
+                Employee_Bureau.BureauID
+            FROM Employee, Employee_Bureau, ReviewStatus, Reviews, Bureaus, Manager_Employee
+            WHERE Employee.EmployeeID = Employee_Bureau.EmployeeID 
+            AND Employee_Bureau.Employee_BureauID = Reviews.Employee_BureauID
+            AND Reviews.ReviewStatusID = ReviewStatus.ReviewStatusID
+            AND Bureaus.BureauID = Employee_Bureau.BureauID
+            AND Manager_Employee.Manager_EmployeeID = Reviews.Manager_EmployeeID;
+                ");
+        }
+
         //Gets SQL query data & stores it in the list
         public void GetSQL(string query)
         {
