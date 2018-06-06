@@ -140,7 +140,7 @@
                         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-search"></i> Search Reviews
                         </button>
-                        <button type="button" onserverclick="ResetClick"  title="Reset" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
+                        <button type="button" runat="server" onserverclick="ResetClick"  title="Reset" class="btn btn-dark">
                             <i class="fa fa-refresh"></i> Reset
                         </button>
                         
