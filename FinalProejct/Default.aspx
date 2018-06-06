@@ -7,6 +7,7 @@
     <title>City of Portland Performance Reviews</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
@@ -119,7 +120,7 @@
                         </table>
                         <div class="modal-footer">
                             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Search" class="btn btn-dark" />
-                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search (Last Name)" class="btn btn-dark" />
+                            <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Search (Lastname)" class="btn btn-dark" />
                         </div>
                     </div>
                 </div>
@@ -139,6 +140,10 @@
                         <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
                             Search Reviews
                         </button>
+                        <button type="button" onserverclick="ResetClick"  title="Reset" class="btn btn-dark" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-refresh"></i> Reset
+                        </button>
+                        
                     </div>
                 </div>
                 <table class="table table-hover" style="margin-top: 15px;">
